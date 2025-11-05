@@ -31,7 +31,7 @@ def shop_trip() -> None:
             cost = customer.calculate_trip_cost(shop, fuel_price)
             trip_costs[shop] = cost
             print(
-                f"{customer.name}'s trip to the {shop.name}"
+                f"{customer.name}'s trip to the {shop.name} "
                 f"costs {round(cost, 2)}")
 
         cheapest_shop, cheapest_cost = min(trip_costs.items(),
@@ -49,8 +49,8 @@ def shop_trip() -> None:
             customer.money -= cheapest_cost
             print(f"{customer.name} rides home")
             customer.go_to(config["customers"][0]["location"])
-            print(f"{customer.name} now has"
+            print(f"{customer.name} now has "
                   f"{round(customer.money, 2)} dollars\n")
         else:
-            print(f"{customer.name} doesn't have enough"
+            print(f"{customer.name} doesn't have enough "
                   f"money to make a purchase in any shop")
