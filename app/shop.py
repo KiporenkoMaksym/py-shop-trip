@@ -29,7 +29,7 @@ class Shop:
                 if isinstance(cost, float) and cost.is_integer()
                 else cost
             )
-            print(f"{qty} {product}s for {cost} dollars")
+            print(f"{qty} {product}s for {cost:.2f} dollars")
         total = int(total) if total.is_integer() else total
-        print(f"Total cost is {total} dollars")
+        print(f"Total cost is {total:.2f} dollars")
         print("See you again!\n")
