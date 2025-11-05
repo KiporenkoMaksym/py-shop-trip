@@ -36,7 +36,8 @@ class Customer:
         self.location = shop.location.copy()
         print(
             f"{self.name} travelled to {shop.name} and spent {trip_cost:.2f} "
-            f"on travel and purchases. Remaining balance: {self.money:.2f} dollars."
+            f"on travel and purchases. "
+            f"Remaining balance: {self.money:.2f} dollars."
         )
 
     def return_home(self, fuel_price: float) -> None:
