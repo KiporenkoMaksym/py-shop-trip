@@ -21,7 +21,7 @@ class Shop:
 
         print(f"\nDate: {date_str}")
         print(f"Thanks, {customer_name}, for your purchase!")
-        print(f"You have bought:")
+        print("You have bought:")
         for product, qty in product_cart.items():
             cost = self.products[product] * qty
             cost = int(cost) if cost.is_integer() else cost

@@ -5,7 +5,7 @@ from app.car import Car
 from app.shop import Shop
 
 
-def shop_trip():
+def shop_trip() -> None:
     current_file_path = os.path.abspath(__file__)
     project_root = os.path.dirname(os.path.dirname(current_file_path))
     config_path = os.path.join(project_root, "config.json")
@@ -30,18 +30,27 @@ def shop_trip():
         for shop in shops:
             cost = customer.calculate_trip_cost(shop, fuel_price)
             trip_costs[shop] = cost
-            print(f"{customer.name}'s trip to the {shop.name} costs {round(cost, 2)}")
+            print(
+                f"{customer.name}'s trip to the {shop.name}"
+                f"costs {round(cost, 2)}")
 
-        cheapest_shop, cheapest_cost = min(trip_costs.items(), key=lambda item: item[1])
+        cheapest_shop, cheapest_cost = min(trip_costs.items(),
+                                           key=lambda item: item[1]
+                                           )
 
         if customer.money >= cheapest_cost:
             print(f"{customer.name} rides to {cheapest_shop.name}")
             customer.go_to(cheapest_shop.location)
 
-            cheapest_shop.print_receipt(customer.name, customer.product_cart)
+            cheapest_shop.print_receipt(
+                customer.name,
+                customer.product_cart
+            )
             customer.money -= cheapest_cost
             print(f"{customer.name} rides home")
             customer.go_to(config["customers"][0]["location"])
-            print(f"{customer.name} now has {round(customer.money, 2)} dollars\n")
+            print(f"{customer.name} now has"
+                  f"{round(customer.money, 2)} dollars\n")
         else:
-            print(f"{customer.name} doesn't have enough money to make a purchase in any shop")
+            print(f"{customer.name} doesn't have enough"
+                  f"money to make a purchase in any shop")
