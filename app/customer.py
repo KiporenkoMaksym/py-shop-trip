@@ -2,6 +2,7 @@ import math
 from app.car import Car
 from app.shop import Shop
 
+
 def distance(loc1: list, loc2: list) -> float:
     return math.sqrt((loc1[0] - loc2[0]) ** 2 + (loc1[1] - loc2[1]) ** 2)
 
@@ -19,7 +20,7 @@ class Customer:
         self.product_cart = product_cart
         self.car = car
 
-    def calculate_trip_cost(self, shop: Shop, fuel_price:float) -> float:
+    def calculate_trip_cost(self, shop: Shop, fuel_price: float) -> float:
 
         dist_to_shop = distance(self.location, shop.location)
         dist_round_trip = dist_to_shop * 2
